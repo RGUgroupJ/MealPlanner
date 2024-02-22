@@ -41,6 +41,31 @@ body{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+.sign-in{
+    position: absolute;
+    font-size: 70px;
+    font-weight: 500;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.login-inputs{
+    width: 250px; 
+    height: 30px;
+    padding: 5px; 
+    border-radius: 6px; 
+    outline: none;
+    border: 1px solid #888585;
+}
+.login-form{
+    height: 450px; 
+    padding: 40px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+}
 .get-started{
     width: 200px;
     font-size: 25px;
@@ -48,6 +73,30 @@ body{
     background-color: #f86f14;
     color: #fff;
     border-radius: 20px;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+}
+.signin-button{
+    width: 200px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+    background-color: #f86f14;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+}
+.signup-button{
+    width: 260px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+    background-color: #f86f14;
+    color: #fff;
+    border-radius: 5px;
     border: none;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     cursor: pointer;
