@@ -10,14 +10,24 @@
     <nav class="home-nav">
         <div>LOGO</div>
         <div class="options">
-            <a class="navlink" href="planner.html">Home</a>
+            <a class="navlink" href="planner.php">Home</a>
             <a class="navlink">Profile</a>
             <a class="navlink">Meal Planner</a>
             <a class="navlink">Recipes</a>
-            <a class="navlink" href="blog.html" style="color: #f86f14;">Blog</a>
-            <a class="navlink" href="signup.html">Sign Up</a>
-            <a class="navlink" href="signin.html">Sign In</a>
-            <a style="display: none;">Log Out</a>
+            <a class="navlink" href="blog.php" style="color: #f86f14;">Blog</a>
+            <?php if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!='true'){
+                // echo 'Sign Up';
+              echo  '<a class="navlink" href="signup.php">Sign Up<a>';
+            } 
+            ?> </a>
+            <?php if(!isset($_SESSION['loggedin']) ||$_SESSION['loggedin']!='true'){
+                echo '<a class="navlink" href="signin.php">Sign In<a>';
+            } 
+            ?> </a>
+            <?php if(isset($_SESSION['loggedin'])&&$_SESSION['loggedin']=='true'){
+                echo '<a class="navlink" href="logout.php">Log Out<a>';
+            } 
+            ?> </a>
         </div>
     </nav>
     <div class="blog-top-container">
