@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #20372c;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.contact-info {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center; /* Center the heading */
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.card p {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.card p strong {
+    font-weight: bold;
+}
+
+.card a {
+    text-decoration: none;
+    color: #000;
+}
+
+footer {
+    background-color: #22352c;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
