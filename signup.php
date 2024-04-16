@@ -27,10 +27,26 @@ if(isset($_POST['confirmpass'])){
     $confirmpass= '';
 }
 
-if(isset($_POST['user'])){
-    $user= $_POST['user'];
+// if(isset($_POST['user'])){
+//     $user= $_POST['user'];
+// } else {
+//     $user= '';
+// }
+if(isset($_POST['diabetes'])){
+    $diabetes= true;
 } else {
-    $user= '';
+    $diabetes= false;
+}
+
+if(isset($_POST['bp'])){
+    $bp= true;
+} else {
+    $bp= false;
+}
+if(isset($_POST['obesity'])){
+    $obesity= $_POST['obesity'];
+} else {
+    $obesity= '';
 }
 
 $errMsg='';
@@ -44,8 +60,11 @@ if(isset($_POST['confirmpass']) && $confirmpass!='' && $confirmpass==$password){
     $result0Array = $result0 -> fetch_array(MYSQLI_NUM);
     $result01Array = $result01 -> fetch_array(MYSQLI_NUM);
     if($result0Array==[] && $result01Array==[]){
-        $sql = "INSERT INTO user (email, username, password, type) VALUES ('$email', '$username', '$password', '$user')";
-        $result = mysqli_query($mysqli, $sql);
+        $_id= time().'con';
+        $user_id= time().'mlp';
+        $sql = "INSERT INTO user (id, email, username, password, type) VALUES ($user_id, '$email', '$username', '$password', 'client')";
+        $sql1 = "INSERT INTO conditions (id, user_id, bp, db, obesity) VALUES ('$_id', '$user_id', '$bp', '$diabetes', '$obesity')";
+        $result1 = mysqli_query($mysqli, $sql1);
         header("Location: signin.php");
         die();
         // // Fetch all
@@ -56,25 +75,6 @@ if(isset($_POST['confirmpass']) && $confirmpass!='' && $confirmpass==$password){
 }
 
 
-
-
-// if($confirmpass!='' && $confirmpass==$password){
-//     $sql = "INSERT INTO user (email, username, password, type) VALUES ('$email', '$username', '$password', '$user')";
-//     $result = mysqli_query($mysqli, $sql);
-
-
-//     // // Fetch all
-//     // mysqli_fetch_all($result, MYSQLI_ASSOC);
-//     print($result);
-// } else {
-//     $errMsg= 'passwords do not match';
-//     echo $errMsg;  
-// }
-
-
-
-// Free result set
-// mysqli_free_result($result);
 
 mysqli_close($mysqli);
 ?> 
@@ -93,7 +93,6 @@ mysqli_close($mysqli);
             <a class="navlink" href='planner.php'>Home</a>
             <a class="navlink">Profile</a>
             <a class="navlink">Meal Planner</a>
-            <a class="navlink">Recipes</a>
             <a class="navlink" href="blog.php">Blog</a>
             <a class="navlink" style="color: #f86f14;" href="signup.php">Sign Up</a>
             <a class="navlink" href="signin.php">Sign In</a>
@@ -105,7 +104,7 @@ mysqli_close($mysqli);
         </div>
     </nav>
     <div>
-        <form action="signup.php" method="post" style="display: flex; align-items: center;justify-content: center; height: fit-content; ">
+        <form name='myForm' action="signup.php" method="post" style="display: flex; align-items: center;justify-content: center; height: fit-content; ">
             <div class="signup-form">
                 <div style="text-align: center;font-weight: bold;">SIGN UP</div>
                 <div style="margin-top: 20px;">
@@ -168,19 +167,41 @@ mysqli_close($mysqli);
                     <label for="hbp">high blood pressure</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="lbp" name="lbp">
-                    <label for="lbp">low blood pressure</label>
-                </div>
-                <div>
                     <input type="checkbox" id="obesity" name="obesity">
                     <label for="obesity">obesity</label>
                 </div>
                 <div style="margin-top: 15px;">
-                    <input type='submit' class="signup-button" value='SIGN UP'></input>
+                    <input type='submit' onclick='validateForm()' class="signup-button" value='SIGN UP'></input>
                 </div>
                 <div style="margin-top: 7px; font-size: 12px; text-align: center;">Already have an account? <a href="signin.php" style="color: #f86f14; text-decoration: none;">sign in</a></div>
             </div>
         </form>
     </div>
+    <script>
+    function validateForm() {
+    let x = document.forms["myForm"]["email"].value;
+    y = document.forms["myForm"]["username"].value;
+    z = document.forms["myForm"]["password"].value;
+    a = document.forms["myForm"]["confirmpass"].value;
+    if (x == "") {
+        alert("Email must be filled out");
+        return false;
+    }
+    if (y == "") {
+        alert("Username must be filled out");
+        return false;
+    }
+    if (z == "") {
+        alert("Password must be filled out");
+        return false;
+    }
+    if (a == "") {
+        alert("Confirm password must be filled out");
+        return false;
+    }
+    }
+    var signup= document.getElementsByClassname('signup-button')
+    
+    </script>
 </body>
 </html>

@@ -26,9 +26,6 @@ $errMsg='';
 
 
 
- 
-
-
 
 // Free result set
 // mysqli_free_result($result);
@@ -48,9 +45,7 @@ $errMsg='';
         <div>LOGO</div>
         <div class="options">
             <a class="navlink" href="planner.php">Home</a>
-            <a class="navlink">Profile</a>
             <a class="navlink">Meal Planner</a>
-            <a class="navlink">Recipes</a>
             <a class="navlink" href="blog.php">Blog</a>
             <a class="navlink" href="signup.php">Sign Up</a>
             <a class="navlink" style="color: #f86f14;" href="signin.php">Sign In</a>
@@ -79,13 +74,15 @@ $errMsg='';
                 <small style='color: red;'>
                 <?php
                     if(isset($_POST['username']) && isset($_POST['password']) ){
-                        $sql= "SELECT username, password from user where username= '$username' or email= '$username'";
+                        $sql= "SELECT id, username, password, type from user where username= '$username' or email= '$username'";
                         $result = mysqli_query($mysqli, $sql);
                         $row = $result -> fetch_array(MYSQLI_NUM);
                         if($row!=[]){
-                            if ($password==$row[1]) {
-                                $_SESSION['loggedin'] = "true";
-                                $_SESSION['username'] = $row[0];
+                            if ($password==$row[2]) {
+                                $_SESSION['loggedin'] = true;
+                                $_SESSION['planneruserid'] = $row[0];
+                                $_SESSION['username'] = $row[1];
+                                $_SESSION['plannerusertype'] = $row[3];
                                 header("Location: planner.php");
                             } else {
                                 echo "invalid username or password";

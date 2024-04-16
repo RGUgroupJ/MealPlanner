@@ -151,6 +151,65 @@ body{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     cursor: pointer;
 }
+.add_input{
+    width: 300px;
+    height: 25px;
+}
+.flex{
+    display: flex;
+    margin-top: 10px;
+}
+.ni_label1{
+    font-size: 13px;
+    padding-right: 10px;
+    display: block;
+    width: 80px;
+}
+.ni_label{
+    font-size: 13px;
+    padding-right: 10px;
+    display: block;
+    width: 80px;
+}
+.num_input{
+    width: 40px;
+    height: 40px;
+}
+.add_label{
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: block;
+}
+.sideboard{
+    width: 250px; 
+    background-color: #302f2f; 
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding-top: 40px;
+    height: 150vh;
+}
+.mainOption{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+.option2{
+    display: none;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    padding-left: 15px;
+    text-decoration: none;
+    font-size: 13px;
+}
+.sideboard>a{
+    width: 100%;
+    cursor: pointer;
+}
 .navlink{
     text-decoration: none;
     color: #fff;
@@ -168,6 +227,18 @@ body{
     font-weight: bold;
     padding: 15px;
     background-color: #f86f14;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+}
+.admin-signup-button{
+    width: 360px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+    background-color: rgb(15, 15, 15);
     color: #fff;
     border-radius: 5px;
     border: none;
@@ -203,7 +274,7 @@ body{
 }
 .options{
     display: flex;
-    margin-right: 45px;
+    margin-left: 505px; 
 }
 .auth{
     right: 0;
